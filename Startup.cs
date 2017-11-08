@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using netcore_e2e_app.Persistence;
 
 namespace netcore_e2e_app
 {
@@ -24,6 +26,7 @@ namespace netcore_e2e_app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<NetcoreE2eAppDbContext>(options => options.UseSqlServer(""));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
