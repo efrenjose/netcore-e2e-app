@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using netcore_e2e_app.Models;
 
 namespace netcore_e2e_app.Persistence
 {
@@ -10,5 +11,8 @@ namespace netcore_e2e_app.Persistence
         {
             
         }
+
+        public DbSet<Make> Make { get; set; }
+        
     }
 }
