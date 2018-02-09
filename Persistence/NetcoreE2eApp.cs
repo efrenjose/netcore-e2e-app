@@ -12,7 +12,7 @@ namespace netcore_e2e_app.Persistence
             
         }
 
-        public DbSet<Make> Make { get; set; }
+        public DbSet<Make> Makes { get; set; }
         
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using netcore_e2e_app.Persistence;
+using AutoMapper;
 
 namespace netcore_e2e_app
 {
@@ -20,7 +21,8 @@ namespace netcore_e2e_app
             var builder = new ConfigurationBuilder()
             .SetBasePath(env.ContentRootPath)
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+            .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 
@@ -29,6 +31,7 @@ namespace netcore_e2e_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
             services.AddMvc();
             services.AddDbContext<NetcoreE2eAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
         }
