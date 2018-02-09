@@ -11,9 +11,10 @@ using System;
 namespace netcoree2eapp.Migrations
 {
     [DbContext(typeof(NetcoreE2eAppDbContext))]
-    partial class NetcoreE2eAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180209212715_AddFeatures")]
+    partial class AddFeatures
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
