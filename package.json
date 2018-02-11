@@ -21,11 +21,11 @@
     "@types/webpack-env": "1.13.0",
     "angular2-template-loader": "0.6.2",
     "aspnet-prerendering": "^3.0.1",
-    "aspnet-webpack": "^2.0.1",
+    "aspnet-webpack": "^2.0.3",
     "awesome-typescript-loader": "3.2.1",
     "bootstrap": "3.3.7",
     "css": "2.2.1",
-    "css-loader": "0.28.4",
+    "css-loader": "^0.28.9",
     "es6-shim": "0.35.3",
     "event-source-polyfill": "0.0.9",
     "expose-loader": "0.7.3",
@@ -45,7 +45,7 @@
     "url-loader": "0.5.9",
     "webpack": "2.5.1",
     "webpack-hot-middleware": "2.18.2",
-    "webpack-merge": "4.1.0",
+    "webpack-merge": "^4.1.1",
     "zone.js": "0.8.12"
   },
   "devDependencies": {
