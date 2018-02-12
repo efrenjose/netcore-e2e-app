@@ -14,8 +14,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
 
 // Services
-import { MakeService } from './services/make.service';
-import { FeatureService } from './services/feature.service';
+import { VehicleService } from './services/vehicle.service';
 
 @NgModule({
     declarations: [
@@ -40,8 +39,7 @@ import { FeatureService } from './services/feature.service';
         ])
     ],
     providers: [
-        MakeService,
-        FeatureService
+        VehicleService
     ]
 })
 export class AppModuleShared {
