@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -22,7 +23,7 @@ namespace netcore_e2e_app.Models
         [Required]
         [StringLength(255)]
         public string ContactPhone { get; set; }
-        public System.DateTime LastUpdate { get; set; }
+        public DateTime LastUpdate { get; set; }
 
         public ICollection<VehicleFeature> Features { get; set; }
 
