@@ -7,7 +7,8 @@ namespace netcore_e2e_app.Persistence
     {
         public DbSet<Make> Makes { get; set; }
         public DbSet<Feature> Features {get; set; }
-        
+        public DbSet<Vehicle> Vehicles { get; set; }
+
         public NetcoreE2eAppDbContext(DbContextOptions<NetcoreE2eAppDbContext> options)
             : base(options)
         {
