@@ -30,7 +30,7 @@ namespace netcore_e2e_app.Mapping
                 //remove unselected features
                 var removedFeatures = v.Features
                     .Where(f => !vr.Features.Contains(f.FeatureId));
-                foreach (var f in removedFeatures)
+                foreach (var f in removedFeatures.ToList())
                     v.Features.Remove(f);
 
                 //Add new features
