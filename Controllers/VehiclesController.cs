@@ -48,7 +48,7 @@ namespace netcore_e2e_app.Controllers
 
             if(vehicle == null)
                 return NotFound();
-                
+
             mapper.Map<VehicleResource, Vehicle>(vehicleResource, vehicle);
             vehicle.LastUpdate = DateTime.Now;
 
@@ -74,6 +74,18 @@ namespace netcore_e2e_app.Controllers
             return Ok(id);
         }
 
-         
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetVehicle(int id)
+        {
+    
+            var vehicle = await context.Vehicles.Include(v => v.Features).SingleOrDefaultAsync(v => v.Id == id);
+
+            if(vehicle == null)
+                return NotFound();
+
+            var vehicleResource = mapper.Map<Vehicle, VehicleResource>(vehicle);
+
+            return Ok(vehicleResource);
+        }   
     }
 }
