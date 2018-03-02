@@ -14,12 +14,13 @@ namespace netcore_e2e_app.Controllers
     {
         private readonly IMapper mapper;
         private readonly NetcoreE2eAppDbContext context;
+        private readonly IVehicleRepository repository;
 
-        public VehiclesController(IMapper mapper, NetcoreE2eAppDbContext context)
+        public VehiclesController(IMapper mapper, NetcoreE2eAppDbContext context, IVehicleRepository repository)
         {
             this.context = context;
+            this.repository = repository;
             this.mapper = mapper;
-
         }
 
         [HttpPost]
@@ -34,12 +35,7 @@ namespace netcore_e2e_app.Controllers
             context.Vehicles.Add(vehicle);
             await context.SaveChangesAsync();
 
-            vehicle = await context.Vehicles
-                .Include(v => v.Features)
-                    .ThenInclude(vf => vf.Feature)
-                .Include(v => v.Model)
-                    .ThenInclude(m => m.Make)
-                .SingleOrDefaultAsync(v => v.Id == vehicle.Id);
+            vehicle = await repository.GetVehicle(vehicle.Id);
 
             var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
             return Ok(result);
@@ -51,12 +47,7 @@ namespace netcore_e2e_app.Controllers
             if (!ModelState.IsValid)
              return BadRequest(ModelState);
     
-            var vehicle = await context.Vehicles
-                .Include(v => v.Features)
-                    .ThenInclude(vf => vf.Feature)
-                .Include(v => v.Model)
-                    .ThenInclude(m => m.Make)
-                .SingleOrDefaultAsync(v => v.Id == id);
+            var vehicle = await repository.GetVehicle(id);
 
             if(vehicle == null)
                 return NotFound();
@@ -90,12 +81,7 @@ namespace netcore_e2e_app.Controllers
         public async Task<IActionResult> GetVehicle(int id)
         {
     
-            var vehicle = await context.Vehicles
-                .Include(v => v.Features)
-                    .ThenInclude(vf => vf.Feature)
-                .Include(v => v.Model)
-                    .ThenInclude(m => m.Make)
-                .SingleOrDefaultAsync(v => v.Id == id);
+            var vehicle = await repository.GetVehicle(id);
 
             if(vehicle == null)
                 return NotFound();

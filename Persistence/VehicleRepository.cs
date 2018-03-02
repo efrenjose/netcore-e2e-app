@@ -4,7 +4,7 @@ using netcore_e2e_app.Models;
 
 namespace netcore_e2e_app.Persistence
 {
-    public class VehicleRepository
+    public class VehicleRepository : IVehicleRepository
     {
         private readonly NetcoreE2eAppDbContext context;
         public VehicleRepository(NetcoreE2eAppDbContext context)
