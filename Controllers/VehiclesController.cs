@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using netcore_e2e_app.Models;
 using netcore_e2e_app.Models.Resources;
-using netcore_e2e_app.Persistence;
+using netcore_e2e_app.Core;
 
 namespace netcore_e2e_app.Controllers
 {

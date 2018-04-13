@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using netcore_e2e_app.Persistence;
 using AutoMapper;
+using netcore_e2e_app.Core;
 
 namespace netcore_e2e_app
 {

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using netcore_e2e_app.Core;
 using netcore_e2e_app.Models;
 
 namespace netcore_e2e_app.Persistence

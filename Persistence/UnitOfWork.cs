@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using netcore_e2e_app.Core;
 
 namespace netcore_e2e_app.Persistence
 {
